@@ -4,20 +4,40 @@
 #    git config --global include.path ~/.gitconfig.template
 #
 
+[core]
+	autocrlf = false
+	editor = 'vim'
+	quotepath = off
 [color]
-        diff = auto
-        status = auto
         branch = auto
+        diff = auto
+	interactive = auto
+        status = auto
         ui = true
 
 [include]
-        path = ~/.gitconfig.aliases
+        path = ./.gitconfig.aliases
 
-[credential]
-        helper = osxkeychain
+[diff]
+	guitool = beyondcompare4
+
+[merge]
+	tool = BeyondCompare4
+
+[gui]
+	encoding = utf-8
 
 [difftool]
         prompt = false
+
+[difftool "beyondcompare4"]
+	path = C:/Program Files/Beyond Compare 4/bcomp.exe
+	cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+
+[mergetool "BeyondCompare4"]
+	path = C:/Program Files/Beyond Compare 4/bcomp.exe
+	cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 
 [filter "lfs"]
         clean = git-lfs clean -- %f
